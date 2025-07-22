@@ -14,6 +14,6 @@
  *  limitations under the License.
  */
 @Version("1.0")
-package com.translate.core.schedulers;
+package com.translation.core.schedulers;
 
 import org.osgi.annotation.versioning.Version;

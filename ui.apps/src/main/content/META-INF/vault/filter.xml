@@ -3,4 +3,5 @@
     <filter root="/apps/translate/clientlibs"/>
     <filter root="/apps/translate/components"/>
     <filter root="/apps/translate/i18n"/>
+    <filter root="/apps/translate"/>
 </workspaceFilter>

@@ -25,10 +25,13 @@
     <module>core</module>
     <module>ui.frontend</module>
     <module>ui.apps</module>
+    <module>ui.apps.structure</module>
     <module>ui.config</module>
     <module>ui.content</module>
+    <!--
     <module>dispatcher.ams</module>
     <module>dispatcher.cloud</module>
+    -->
   </modules>
   <properties>
     <aem.host>localhost</aem.host>
@@ -44,8 +47,8 @@
     <bnd.version>5.1.2</bnd.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <aem.sdk.api>2025.3.20133.20250325T063357Z-250300</aem.sdk.api>
-    <aemanalyser.version>1.4.10</aemanalyser.version>
+    <aem.sdk.api>2025.7.21570.20250715T080514Z-250600</aem.sdk.api>
+    <aemanalyser.version>1.6.8</aemanalyser.version>
     <componentGroupName>Translate</componentGroupName>
   </properties>
   <build>
@@ -596,6 +599,31 @@ Bundle-DocURL:
         <version>1.0.1</version>
         <scope>test</scope>
       </dependency>
+
+        <!--  Google Cloud Translate API v3  -->
+        <dependency>
+            <groupId>com.google.cloud</groupId>
+            <artifactId>google-cloud-translate</artifactId>
+            <version>2.68.0</version>
+        </dependency>
+        <!--  Required transitive dependencies  -->
+        <dependency>
+            <groupId>com.google.auth</groupId>
+            <artifactId>google-auth-library-oauth2-http</artifactId>
+            <version>1.19.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.api</groupId>
+            <artifactId>gax</artifactId>
+            <version>2.32.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.api</groupId>
+            <artifactId>gax-grpc</artifactId>
+            <version>2.32.0</version>
+        </dependency>
+
+
     </dependencies>
   </dependencyManagement>
 </project>

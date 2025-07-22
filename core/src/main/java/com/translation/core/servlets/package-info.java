@@ -14,6 +14,6 @@
  *  limitations under the License.
  */
 @Version("1.0")
-package com.translate.core.servlets;
+package com.translation.core.servlets;
 
 import org.osgi.annotation.versioning.Version;

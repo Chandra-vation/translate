@@ -14,6 +14,6 @@
  *  limitations under the License.
  */
 @Version("1.0")
-package com.translate.core.filters;
+package com.translation.core.filters;
 
 import org.osgi.annotation.versioning.Version;
