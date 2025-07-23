@@ -78,26 +78,10 @@
                         </embedded>
                         <!-- Removed google-cloud-translate JAR; only embed OSGi-wrapped core bundle -->
                         <embedded>
-                            <groupId>com.google.cloud</groupId>
-                            <artifactId>google-cloud-translate</artifactId>
+                            <groupId>com.translation</groupId>
+                            <artifactId>google-bundles</artifactId>
                             <target>/apps/translate-packages/application/install</target>
                         </embedded>
-                        <embedded>
-                            <groupId>com.google.auth</groupId>
-                            <artifactId>google-auth-library-oauth2-http</artifactId>
-                            <target>/apps/translate-packages/application/install</target>
-                        </embedded>
-                        <embedded>
-                            <groupId>com.google.api</groupId>
-                            <artifactId>gax</artifactId>
-                            <target>/apps/translate-packages/application/install</target>
-                        </embedded>
-                        <embedded>
-                            <groupId>com.google.api</groupId>
-                            <artifactId>gax-grpc</artifactId>
-                            <target>/apps/translate-packages/application/install</target>
-                        </embedded>
-
                     </embeddeds>
                 </configuration>
             </plugin>

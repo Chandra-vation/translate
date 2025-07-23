@@ -1,0 +1,72 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- ====================================================================== -->
+    <!-- P A R E N T  P R O J E C T  D E S C R I P T I O N                      -->
+    <!-- ====================================================================== -->
+    <parent>
+        <groupId>com.translation</groupId>
+        <artifactId>translate</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+    <!-- ====================================================================== -->
+
+    
+    <artifactId>google-bundles</artifactId>
+    <version>1.0.0</version>
+    <packaging>bundle</packaging>
+    <name>Google Third-Party Bundles</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.google.cloud</groupId>
+            <artifactId>google-cloud-translate</artifactId>
+            <version>2.68.0</version>
+        </dependency>
+
+        <dependency>
+          <groupId>com.google.cloud</groupId>
+          <artifactId>google-cloud-core</artifactId>
+          <version>2.58.1</version>
+        </dependency>
+        <dependency>
+          <groupId>com.google.cloud</groupId>
+          <artifactId>google-cloud-core-http</artifactId>
+          <version>2.58.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.auth</groupId>
+            <artifactId>google-auth-library-oauth2-http</artifactId>
+            <version>1.19.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.api</groupId>
+            <artifactId>gax</artifactId>
+            <version>2.32.0</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <version>5.1.8</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+                        <Export-Package>*</Export-Package>
+                        <Import-Package>*;resolution:=optional</Import-Package>
+                        <Embed-Dependency>*;scope=compile|runtime;inline=false</Embed-Dependency>
+                        <Embed-Transitive>true</Embed-Transitive>
+                        <DynamicImport-Package>*</DynamicImport-Package>
+                    </instructions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
