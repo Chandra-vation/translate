@@ -54,12 +54,6 @@
                     <group>com.translation</group>
                     <name>translate.ui.apps</name>
                     <packageType>application</packageType>
-                    <repositoryStructurePackages>
-                        <repositoryStructurePackage>
-                            <groupId>com.translation</groupId>
-                            <artifactId>translate.ui.apps.structure</artifactId>
-                        </repositoryStructurePackage>
-                    </repositoryStructurePackages>
                     <dependencies>
                     </dependencies>
                 </configuration>
@@ -114,12 +108,6 @@
         <dependency>
             <groupId>com.translation</groupId>
             <artifactId>translate.ui.frontend</artifactId>
-            <version>${project.version}</version>
-            <type>zip</type>
-        </dependency>
-        <dependency>
-            <groupId>com.translation</groupId>
-            <artifactId>translate.ui.apps.structure</artifactId>
             <version>${project.version}</version>
             <type>zip</type>
         </dependency>

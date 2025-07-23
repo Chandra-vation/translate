@@ -7,14 +7,11 @@
         cq:redirectTarget="/content/translate/us/en"
         cq:template="/conf/translate/settings/wcm/templates/page-content"
         jcr:primaryType="cq:PageContent"
-        jcr:title="Translate"
         sling:configRef="/conf/translate"
         sling:redirect="{Boolean}true"
         sling:redirectStatus="{Long}302"
         sling:resourceType="translate/components/page">
-        <image jcr:primaryType="nt:unstructured">
-            <file/>
-        </image>
     </jcr:content>
+    <language-masters/>
     <us/>
 </jcr:root>
