@@ -22,6 +22,7 @@
   <description>Translate</description>
   <modules>
     <module>all</module>
+    <module>google-bundles</module>
     <module>core</module>
     <module>ui.frontend</module>
     <module>ui.apps</module>
@@ -602,25 +603,9 @@ Bundle-DocURL:
 
         <!--  Google Cloud Translate API v3  -->
         <dependency>
-            <groupId>com.google.cloud</groupId>
-            <artifactId>google-cloud-translate</artifactId>
-            <version>2.68.0</version>
-        </dependency>
-        <!--  Required transitive dependencies  -->
-        <dependency>
-            <groupId>com.google.auth</groupId>
-            <artifactId>google-auth-library-oauth2-http</artifactId>
-            <version>1.19.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.google.api</groupId>
-            <artifactId>gax</artifactId>
-            <version>2.32.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.google.api</groupId>
-            <artifactId>gax-grpc</artifactId>
-            <version>2.32.0</version>
+            <groupId>com.translation</groupId>
+            <artifactId>google-bundles</artifactId>
+            <version>1.0.0</version>
         </dependency>
 
 
