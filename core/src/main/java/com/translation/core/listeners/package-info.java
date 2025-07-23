@@ -14,6 +14,6 @@
  *  limitations under the License.
  */
 @Version("1.0")
-package com.translate.core.listeners;
+package com.translation.core.listeners;
 
 import org.osgi.annotation.versioning.Version;

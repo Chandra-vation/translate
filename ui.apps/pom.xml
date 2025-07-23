@@ -51,12 +51,12 @@
                     <properties>
                         <cloudManagerTarget>none</cloudManagerTarget>
                     </properties>
-                    <group>com.translate</group>
+                    <group>com.translation</group>
                     <name>translate.ui.apps</name>
                     <packageType>application</packageType>
-                                        <repositoryStructurePackages>
+                    <repositoryStructurePackages>
                         <repositoryStructurePackage>
-                            <groupId>com.translate</groupId>
+                            <groupId>com.translation</groupId>
                             <artifactId>translate.ui.apps.structure</artifactId>
                         </repositoryStructurePackage>
                     </repositoryStructurePackages>
@@ -107,31 +107,22 @@
     <!-- ====================================================================== -->
     <dependencies>
         <dependency>
-            <groupId>com.translate</groupId>
+            <groupId>com.translation</groupId>
             <artifactId>translate.core</artifactId>
             <version>${project.version}</version>
         </dependency>
-
         <dependency>
-            <groupId>com.translate</groupId>
+            <groupId>com.translation</groupId>
             <artifactId>translate.ui.frontend</artifactId>
             <version>${project.version}</version>
             <type>zip</type>
         </dependency>
-
-
         <dependency>
-            <groupId>com.translate</groupId>
+            <groupId>com.translation</groupId>
             <artifactId>translate.ui.apps.structure</artifactId>
             <version>${project.version}</version>
             <type>zip</type>
         </dependency>
-
-        <dependency>
-            <groupId>com.adobe.aem</groupId>
-            <artifactId>aem-sdk-api</artifactId>
-        </dependency>
-
         <!-- HTL dependencies needed for the HTL Maven Plugin source code generation -->
         <dependency>
             <groupId>org.apache.sling</groupId>
@@ -139,5 +130,26 @@
             <version>1.2.4-1.4.0</version>
             <scope>provided</scope>
         </dependency>
+    <!-- Add AEM SDK API dependency -->
+    <dependency>
+        <groupId>com.adobe.aem</groupId>
+        <artifactId>aem-sdk-api</artifactId>
+        <scope>provided</scope>
+    </dependency>
     </dependencies>
+
+    <!-- Add Adobe Public Maven repository -->
+    <repositories>
+        <repository>
+            <id>adobe-public-releases</id>
+            <name>Adobe Public Repository</name>
+            <url>https://repo.adobe.com/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 </project>

@@ -53,7 +53,7 @@
                     <showImportPackageReport>false</showImportPackageReport>
                     <repositoryStructurePackages>
                         <repositoryStructurePackage>
-                            <groupId>com.translate</groupId>
+                            <groupId>com.translation</groupId>
                             <artifactId>translate.ui.apps.structure</artifactId>
                         </repositoryStructurePackage>
                     </repositoryStructurePackages>
@@ -68,7 +68,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.translate</groupId>
+            <groupId>com.translation</groupId>
             <artifactId>translate.ui.apps.structure</artifactId>
             <version>${project.version}</version>
             <type>zip</type>

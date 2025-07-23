@@ -96,6 +96,12 @@ Import-Package: javax.annotation;version=0.0.0,*
             <scope>test</scope>
         </dependency>
 
+        <!--  Google Cloud Translate API v3  -->
+        <dependency>
+            <groupId>com.translation</groupId>
+            <artifactId>google-bundles</artifactId>
+        </dependency>
+
 
         <!-- Testing -->
         <dependency>
