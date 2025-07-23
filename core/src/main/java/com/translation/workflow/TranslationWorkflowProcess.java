@@ -36,7 +36,7 @@ public class TranslationWorkflowProcess implements WorkflowProcess {
 
             Resource pageResource = resolver.getResource(payloadPath);
             if (pageResource != null) {
-                translationService.translateText("pageResource", sourceLang, targetLang);
+                translationService.translatePage(pageResource, sourceLang, targetLang);
             }
 
         } catch (Exception e) {

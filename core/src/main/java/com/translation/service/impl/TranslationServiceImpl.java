@@ -2,11 +2,18 @@ package com.translation.service.impl;
 
 import java.io.FileInputStream;
 import java.util.Collections;
+import java.util.Iterator;
 
+import javax.jcr.Node;
+
+import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ResourceResolverFactory;
+import org.apache.sling.api.resource.Resource;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 
+import com.day.cq.wcm.api.Page;
+import com.day.cq.wcm.api.PageManager;
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.cloud.translate.v3beta1.LocationName;
 import com.google.cloud.translate.v3beta1.TranslateTextRequest;
@@ -54,7 +61,7 @@ public class TranslationServiceImpl implements TranslationService {
         }
     }
 
- /*
+ 
     @Override
     public void translatePage(Resource pageResource, String sourceLang, String targetLang) {
         try (ResourceResolver resolver = resolverFactory.getServiceResourceResolver(
@@ -94,5 +101,5 @@ public class TranslationServiceImpl implements TranslationService {
             e.printStackTrace();
         }
     }
-         */
+         
 }
