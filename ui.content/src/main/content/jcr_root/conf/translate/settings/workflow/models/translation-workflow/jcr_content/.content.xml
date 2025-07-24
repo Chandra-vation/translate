@@ -2,7 +2,12 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
           xmlns:jcr="http://www.jcp.org/jcr/1.0"
           jcr:primaryType="cq:WorkflowModel"
-          jcr:title="Translation Workflow"
-          description="Workflow for translating pages and content fragments"
-          modelId="translation-workflow">
+          description="Workflow for translating pages and content fragments">
+
+            <metaData
+            jcr:primaryType="nt:unstructured"
+            jcr:title="Translation Workflow"
+            modelId="translation-workflow" />
+        
+            
 </jcr:root>

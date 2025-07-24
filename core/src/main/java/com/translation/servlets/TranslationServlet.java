@@ -1,7 +1,12 @@
 package com.translation.servlets;
 
 
-import com.translation.service.TranslationService;
+import java.io.IOException;
+import java.util.Optional;
+
+import javax.servlet.Servlet;
+import javax.servlet.ServletException;
+
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.resource.Resource;
@@ -10,11 +15,10 @@ import org.apache.sling.api.servlets.SlingAllMethodsServlet;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 
-import javax.servlet.Servlet;
-import javax.servlet.ServletException;
-import java.io.IOException;
+import com.translation.service.TranslationService;
 
-@Component(service = Servlet.class,
+
+@Component(service = { Servlet.class },
         property = {
                 "sling.servlet.methods=POST",
                 "sling.servlet.paths=/bin/translatePage"
@@ -29,8 +33,14 @@ public class TranslationServlet extends SlingAllMethodsServlet {
             throws ServletException, IOException {
 
         String path = request.getParameter("path");
-        String sourceLang = request.getParameter("sourceLang"); // e.g. "en"
-        String targetLang = request.getParameter("targetLang"); // e.g. "fr"
+        String sourceLang = Optional.ofNullable(request.getParameter("sourceLang"))
+                            .filter(s -> !s.isBlank())
+                            .orElse("en");
+
+        String targetLang = Optional.ofNullable(request.getParameter("targetLang"))
+                            .filter(s -> !s.isBlank())
+                            .orElse("fr");
+
 
         if (path == null || sourceLang == null || targetLang == null) {
             response.setStatus(400);
@@ -46,7 +56,7 @@ public class TranslationServlet extends SlingAllMethodsServlet {
             return;
         }
 
-        translationService.translateText("Hello World!!!", sourceLang, targetLang);
+        translationService.translatePage(pageResource, sourceLang, targetLang);
         response.getWriter().write("Translation triggered for: " + path);
     }
 }

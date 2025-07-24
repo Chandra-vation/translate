@@ -11,6 +11,8 @@ import org.apache.sling.api.resource.ResourceResolverFactory;
 import org.apache.sling.api.resource.Resource;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
+import org.osgi.service.metatype.annotations.Designate;
+import org.osgi.service.metatype.annotations.ObjectClassDefinition;
 
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
@@ -23,13 +25,26 @@ import com.google.cloud.translate.v3beta1.TranslationServiceSettings;
 import com.translation.service.TranslationService;
 
 @Component(service = TranslationService.class)
+@Designate(ocd = TranslationServiceImpl.Config.class)
 public class TranslationServiceImpl implements TranslationService {
+
+    @ObjectClassDefinition(name = "Google Translate Service Config")
+    public @interface Config {
+        String projectId();
+        String credentialsPath(); // path to service account JSON
+    }
+
+    private String projectId;
+    private String credentialsPath;
+
+    @org.osgi.service.component.annotations.Activate
+    protected void activate(Config config) {
+        this.projectId = config.projectId();
+        this.credentialsPath = config.credentialsPath();
+    }
 
     @Reference
     private ResourceResolverFactory resolverFactory;
-
-    private String projectId = "your-gcp-project-id";
-    private String credentialsPath = "/etc/secrets/gcp-credentials.json"; // path to your JSON
 
     @Override
     public String translateText(String sourceText, String sourceLang, String targetLang) {
