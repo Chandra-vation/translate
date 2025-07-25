@@ -77,6 +77,7 @@ Import-Package: !javax.annotation;version=0.0.0,*
                     </archive>
                 </configuration>
             </plugin>
+
         </plugins>
     </build>
 
@@ -97,9 +98,38 @@ Import-Package: !javax.annotation;version=0.0.0,*
         </dependency>
 
         <!--  Google Cloud Translate API v3  -->
+
         <dependency>
             <groupId>com.translation</groupId>
             <artifactId>google-bundles</artifactId>
+            <version>1.0.0</version>    
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.cloud</groupId>
+            <artifactId>google-cloud-translate</artifactId>
+            <version>2.68.0</version>
+        </dependency>
+
+        <dependency>
+          <groupId>com.google.cloud</groupId>
+          <artifactId>google-cloud-core</artifactId>
+          <version>2.58.1</version>
+        </dependency>
+        <dependency>
+          <groupId>com.google.cloud</groupId>
+          <artifactId>google-cloud-core-http</artifactId>
+          <version>2.58.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.auth</groupId>
+            <artifactId>google-auth-library-oauth2-http</artifactId>
+            <version>1.19.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.api</groupId>
+            <artifactId>gax</artifactId>
+            <version>2.32.0</version>
         </dependency>
 
 
