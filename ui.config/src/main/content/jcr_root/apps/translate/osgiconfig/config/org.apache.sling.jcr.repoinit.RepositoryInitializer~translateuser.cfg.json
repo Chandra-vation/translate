@@ -1,0 +1,6 @@
+{
+    "scripts":[
+        "create service user translate-serviceuser",
+        "set ACL for translate-serviceuser\r\nallow jcr:all on /\r\nallow jcr:read on /\r\nend"
+    ]
+}

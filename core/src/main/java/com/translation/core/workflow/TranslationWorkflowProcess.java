@@ -1,6 +1,6 @@
-package com.translation.workflow;
+package com.translation.core.workflow;
 
-import com.translation.service.TranslationService;
+import com.translation.core.service.TranslationService;
 import com.day.cq.workflow.exec.WorkItem;
 import com.day.cq.workflow.exec.WorkflowProcess;
 import com.day.cq.workflow.metadata.MetaDataMap;

@@ -1,4 +1,4 @@
-package com.translation.service.impl;
+package com.translation.core.service.impl;
 
 import java.io.FileInputStream;
 import java.util.Collections;
@@ -22,11 +22,15 @@ import com.google.cloud.translate.v3beta1.TranslateTextRequest;
 import com.google.cloud.translate.v3beta1.TranslateTextResponse;
 import com.google.cloud.translate.v3beta1.TranslationServiceClient;
 import com.google.cloud.translate.v3beta1.TranslationServiceSettings;
-import com.translation.service.TranslationService;
+import com.translation.core.service.TranslationService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Component(service = TranslationService.class)
 @Designate(ocd = TranslationServiceImpl.Config.class)
 public class TranslationServiceImpl implements TranslationService {
+
+   private final transient Logger log = LoggerFactory.getLogger(TranslationServiceImpl.class);
 
     @ObjectClassDefinition(name = "Google Translate Service Config")
     public @interface Config {
@@ -71,7 +75,7 @@ public class TranslationServiceImpl implements TranslationService {
                 return response.getTranslations(0).getTranslatedText();
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("Exception caught in TranslationServiceImpl:- ",e);
             return "[Translation Failed]";
         }
     }

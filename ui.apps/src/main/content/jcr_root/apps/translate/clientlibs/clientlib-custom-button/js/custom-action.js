@@ -3,7 +3,15 @@
 
     const ACTION_NAME = "my-custom-action";
     const SERVLET_URL = "/bin/translatePage";
-    
+
+    function fetchCsrfToken() {
+        return fetch('/libs/granite/csrf/token.json', {
+            credentials: 'same-origin'
+        })
+            .then(res => res.json())
+            .then(data => data.token);
+    }
+
     function addCustomButton() {
         if ($("[data-foundation-collection-action='" + ACTION_NAME + "']").length === 0) {
 
@@ -29,25 +37,30 @@
 
                 const selectedPath = selections[0].getAttribute("data-foundation-collection-item-id");
 
-                fetch(`${SERVLET_URL}?path=${encodeURIComponent(selectedPath)}`, {
-                    method: "GET",
-                    headers: {
-                        "Accept": "application/json"
-                    }
-                })
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error("Servlet error");
-                        }
-                        return response.json();
-                    })
-                    .then(data => {
-                        Coral.dialog.alert(`Servlet response: ${JSON.stringify(data)}`);
-                    })
-                    .catch(error => {
-                        console.error("Servlet call failed:", error);
-                        Coral.dialog.alert("Failed to call servlet.");
+                fetchCsrfToken().then(csrfToken => {
+                    return fetch(SERVLET_URL, {
+                        method: "POST",
+                        headers: {
+                            "Accept": "application/json",
+                            "Content-Type": "application/x-www-form-urlencoded",
+                            "CSRF-Token": csrfToken
+                        },
+                        body: `path=${encodeURIComponent(selectedPath)}`
                     });
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Servlet error");
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    Coral.dialog.alert(`Servlet response: ${data}`);
+                })
+                .catch(error => {
+                    console.error("Servlet call failed:", error);
+                    Coral.dialog.alert("Failed to call servlet.");
+                });
             });
         }
     }

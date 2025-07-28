@@ -1,4 +1,4 @@
-package com.translation.service;
+package com.translation.core.service;
 
 import org.apache.sling.api.resource.Resource;
 
